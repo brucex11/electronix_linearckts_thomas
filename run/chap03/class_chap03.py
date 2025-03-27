@@ -5,11 +5,9 @@ from inspect import currentframe
 from setup import class_setup
 
 
-class Chap01( class_setup.Setup ):
+class Chap03( class_setup.Setup ):
 	"""
-	HW problems:  1.1-1 ; -4 ; -11
-                1.2-1
-                1.4-4 ; -6c,d,e,f ; -13
+	Problems:  
 	"""
 
 	def __init__( self, path_config_file:str ) -> None:
@@ -30,7 +28,7 @@ class Chap01( class_setup.Setup ):
 
 
 	# ----------------------------------------------------------------------------
-	# --- Functions: helpers to support all of Chapter 01 ------------------------
+	# --- Functions: helpers to support all of Chapter 03 ------------------------
 	# ----------------------------------------------------------------------------
 
 

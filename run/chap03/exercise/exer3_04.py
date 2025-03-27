@@ -7,7 +7,7 @@ from typing import List, Tuple  # Any, Dict, Set
 import matplotlib.pyplot as plt
 
 
-def prob2_04(self):
+def exer3_04(self):
 	"""Page 228
 	Linear Systems and Signals, Lathi
 	Prob 2.4-27 (a) Find and sketch c(t) = x1(t) * x2(t) for the pairs of functions
@@ -24,7 +24,7 @@ def prob2_04(self):
 	print( f"{self.problem_ans}" )
 	assert_percentage:float = 2.0
 	print( '-----------------------------------------------\nSolution' )
-
+	return
 
 	#  α   β   Ω   μ   λ   γ   ξ   ω
 

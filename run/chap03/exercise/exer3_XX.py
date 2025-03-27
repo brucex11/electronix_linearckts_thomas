@@ -1,11 +1,10 @@
-
 from inspect import currentframe
 import math
 from typing import List, Tuple  # Any, Dict, Set
 
 from assertions import assertions
 
-def exer2_XX(self):
+def exer3_XX(self):
 	"""Page XX:
 
 	ANS(a): (i) 1.03μA, (ii) 2.25mA

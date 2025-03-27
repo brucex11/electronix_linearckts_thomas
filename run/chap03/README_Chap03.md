@@ -1,5 +1,5 @@
 # Python Project LINEARCKTS_THOMAS
-# Analysis and Design of Linear Circuits Chap 01
+# Analysis and Design of Linear Circuits Chap 03
 Problems from the textbook: Analysis and Design of Linear Circuits, 6th edition by Thomas, Rosa.
 
 Figures and notes for all `./subdir` examples, exercises, and problems for this
@@ -12,14 +12,13 @@ When applicable, each problem has keywords that reflect code in that problem.
 
 ## Available Keywords
 * `convolution  unit_step  heaviside`
-* `ramp  sum_of_signals`
 
 
 # Examples, Exercises, and Problems
 All worked sections are listed in order by number in their prospective category.
-Here is the format for each problem number (X.XX-XX):
+Here is the format for each problem number (X.XX):
 
-X.XX-XX: Description
+X.XX: Description
 * worked-file PATH, textbook page num
 * associated word docx (optional)
 * LTspice folder (optional)
@@ -27,24 +26,24 @@ X.XX-XX: Description
 
 
 ## Examples
-1.1.6: Use the unit step function to describe the signal in Fig. 1.16a.,
+3.6: Use the unit step function to describe the signal in Fig. 1.16a.,
 textbook page 84
-* example/exam1_01_06
+* example/exam1_06
 * keywords: `ramp  unit_step  heaviside  sum_of_signals`
-
-heaviside:
-* chap01/example/heaviside
-* keywords: `ramp  unit_step  heaviside`
-
-ramp:
-* chap01/example/ramp
-* keywords: `ramp  unit_step  heaviside`
 
 
 ## Exercises
+3.6: Use the unit step function to describe the signal in Fig. 1.16a.,
+textbook page 84
+* exercise/exer3_06
+* keywords: `XXX`
 
 
 ## Problems
+3.1: Use the unit step function to describe the signal in Fig. 1.16a.,
+textbook page 84
+* exercise/prob3_01
+* keywords: `XXX`
 
 
 

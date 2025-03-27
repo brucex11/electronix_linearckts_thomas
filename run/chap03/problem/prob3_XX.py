@@ -5,7 +5,7 @@ from typing import List, Tuple  # Any, Dict, Set
 
 from assertions import assertions
 
-def prob2_XX(self):
+def prob3_XX(self):
 	"""Page XX:
 
 	ANS(a): (i) 1.03μA, (ii) 2.25mA
@@ -22,7 +22,6 @@ def prob2_XX(self):
 	print( f"{self.problem_ans}" )
 	assert_percentage:float = 2.0
 	print( '-----------------------------------------------\nSolution' )
-
 
 	#  α   β   Ω   μ   λ   γ   ξ   ω
 

@@ -11,8 +11,8 @@ import argparse
 # import errno
 import sys
 
-from chap01 import class_chap01
 from chap02 import class_chap02
+from chap03 import class_chap03
 
 
 def main() -> int:
@@ -81,10 +81,10 @@ def parse_the_args():
 	Input and output dirs are checked for existence.  The output PATH is
 	built to ensure that the filename's extension is .csv.
 	"""
-	desc="""microelx.py [ Chap01 | Chap02 | Chap02 | Chap05 ]  PATH-to-config.ini
+	desc="""run.py [ Chap02 | Chap03 ]  PATH-to-config.ini
 	Example runtime commands:
-	(.venvPy3-12-0) .\\run> python run.py Chap01  ..\\config\\chap01\\example\\config_example__01-10.ini
 	(.venvPy3-12-0) .\\run> python run.py Chap02  ..\\config\\chap02\\problem\\config_problem__21-30.ini
+	(.venvPy3-12-0) .\\run> python run.py Chap03  ..\\config\\chap03\\example\\config_example__01-10.ini
 	"""
 
 	parser = argparse.ArgumentParser( prog=desc )
@@ -92,10 +92,10 @@ def parse_the_args():
 	# then determine which sub-command class to instantiate.
 	# For example, if sub-command == SEARCH, then cl=task_seach.class_search.Search(...).
 	subparsers = parser.add_subparsers( dest='command', required=False, help='Specify chapter' )
-	parser_chap01 = subparsers.add_parser( 'Chap01', help='run Chapter 01 problems' )
-	parser_chap01.add_argument( 'config_file', help='PATH to config.ini' )
 	parser_chap02 = subparsers.add_parser( 'Chap02', help='run Chapter 02 problems' )
 	parser_chap02.add_argument( 'config_file', help='PATH to config.ini' )
+	parser_chap03 = subparsers.add_parser( 'Chap03', help='run Chapter 03 problems' )
+	parser_chap03.add_argument( 'config_file', help='PATH to config.ini' )
 	# parser_chap77 = subparsers.add_parser( 'Chap77', help='run Chapter XX problems' )
 	# parser_chap77.add_argument( 'config_file', help='PATH to config.ini' )
 	# The REST

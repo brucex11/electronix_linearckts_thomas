@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def exam1_01(self):
+def exam3_03(self):
 	"""Page 84:
 	Use the unit step function to describe the signal in Fig. 1.16a."
 	ANS: x(t) = tu(t) - 3(t-2)u(t-2) + 2(t-3)u(t-3).
@@ -18,8 +18,8 @@ def exam1_01(self):
 	print( f"Problem: '{pnum}'" )
 	print( f"{self.problem_txt}" )
 	# print( f"{self.problem_ans}" )
-	print( '-----------------------------------------------\nNotes:' )
-
+	print( '-----------------------------------------------\nSolution' )
+	return
 
 	#  α   β   Ω   μ   λ   γ   ξ   ω
 
