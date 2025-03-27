@@ -1,0 +1,1 @@
+.venvPy3-12-0\Scripts\activate.bat
