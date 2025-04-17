@@ -73,13 +73,14 @@ class Setup():
 			logging.basicConfig(
 				filename=path_to_log_file,  # Log file name
 				filemode='a',  # Write mode ('w' for overwrite, 'a' for append)
-				level=logging.DEBUG,  # Set the minimum level of messages to capture
+				level=logging.INFO,  # Set the minimum level of messages to capture
 				format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',  # Log message format
 			)
 			lg = logging.getLogger( self.prob )
 			# print( f"type(lg): {type(lg)}" )
 			lg.info( f"---- START {self.get_config_param['common']['problem_num']} ----" )
 			lg.info( f"PATH to this log file: '{str(path_to_log_file).replace("\\", "/")}'" )
+			lg.info( f"PATH to config file:   '{str(path_config_file).replace("\\", "/")}'" )
 
 
 		# # save figure params

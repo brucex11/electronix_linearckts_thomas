@@ -4,7 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def exam1_01(self):
+def exam1_06(self):
 	"""Page 84:
 	Use the unit step function to describe the signal in Fig. 1.16a."
 	ANS: x(t) = tu(t) - 3(t-2)u(t-2) + 2(t-3)u(t-3).
