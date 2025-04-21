@@ -1,5 +1,5 @@
 # Python Project LINEARCKTS_THOMAS
-# Analysis and Design of Linear Circuits Chap 02
+# Analysis and Design of Linear Circuits, 2nd Ed. Chap 03
 Problems from the textbook: Analysis and Design of Linear Circuits, 6th edition by Thomas, Rosa.
 
 Figures and notes for all `./subdir` examples, exercises, and problems for this
@@ -11,12 +11,12 @@ Use the keywords below for python-code implementations, problems with plots, etc
 When applicable, each problem has keywords that reflect code in that problem.
 
 ## Available Keywords
-* keywords: `KCL  KVL`
+* `convolution  unit_step  heaviside`
 
 
 # Examples, Exercises, and Problems
 All worked sections are listed in order by number in their prospective category.
-Here is the format for each problem number (X.XX-XX):
+Here is the format for each problem number (X.XX):
 
 X.XX: Description
 * worked-file PATH, textbook page num
@@ -26,23 +26,25 @@ X.XX: Description
 
 
 ## Examples
-2.02: Objective: Determine the currents and voltages in a half-wave rectifier circuit.
-* example/exam2_02.py, textbook page ??
+3.6: Use the unit step function to describe the signal in Fig. 1.16a.,
+textbook page 84
+* example/exam1_06
+* keywords: `ramp  unit_step  heaviside  sum_of_signals`
 
 
 ## Exercises
-2.02: KCL, textbook page 25
-* ./LTspice/chap02/exercise/exer2_02/
-* keywords: `KCL`
-
-2.03: KVL, textbook page 27
-* keywords: `KVL`
+3.6: Use the unit step function to describe the signal in Fig. 1.16a.,
+textbook page 84
+* exercise/exer3_06
+* keywords: `XXX`
 
 
 ## Problems
-2.04: Find and sketch c(t) = x1(t) * x2(t) for the pairs of functions
-illustrated in Fig. P2.4-27.
-* problem/prob2_04.py, textbook page 228
+3.1: Use the unit step function to describe the signal in Fig. 1.16a.,
+textbook page 84
+* exercise/prob3_01
+* keywords: `XXX`
+
 
 
 # Notes

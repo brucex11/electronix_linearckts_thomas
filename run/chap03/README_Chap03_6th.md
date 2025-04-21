@@ -1,5 +1,5 @@
 # Python Project LINEARCKTS_THOMAS
-# Analysis and Design of Linear Circuits Chap 03
+# Analysis and Design of Linear Circuits, 6th Ed. Chap 03
 Problems from the textbook: Analysis and Design of Linear Circuits, 6th edition by Thomas, Rosa.
 
 Figures and notes for all `./subdir` examples, exercises, and problems for this
