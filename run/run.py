@@ -13,6 +13,7 @@ import sys
 
 from chap02 import class_chap02
 from chap03 import class_chap03
+from chap12 import class_chap12
 
 
 def main() -> int:
@@ -65,7 +66,7 @@ def main() -> int:
 			# for the run() method.  Then, the call would simply be as below:
 			# class_ref( *params )
 		except AttributeError as e:
-			print( f"Exception caught in main: {e} for getattr( {class_ref} )" )
+			print( f"Exception caught in main: {e} for getattr( {module_name}.py, {class_name} )" )
 
 	except FileExistsError as e:
 		print( f"Exception caught in main: {e}" )
@@ -85,6 +86,7 @@ def parse_the_args():
 	Example runtime commands:
 	(.venvPy3-12-0) .\\run> python run.py Chap02  ..\\config\\chap02\\problem\\config_problem__21-30.ini
 	(.venvPy3-12-0) .\\run> python run.py Chap03  ..\\config\\chap03\\example\\config_example__01-10.ini
+	(.venvPy3-12-0) .\\run> python run.py Chap12  ..\\config\\chap12\\freq_resp\\config_freq_resp.ini
 	"""
 
 	parser = argparse.ArgumentParser( prog=desc )
@@ -96,6 +98,8 @@ def parse_the_args():
 	parser_chap02.add_argument( 'config_file', help='PATH to config.ini' )
 	parser_chap03 = subparsers.add_parser( 'Chap03', help='run Chapter 03 problems' )
 	parser_chap03.add_argument( 'config_file', help='PATH to config.ini' )
+	parser_chap12 = subparsers.add_parser( 'Chap12', help='run Chapter 12 problems' )
+	parser_chap12.add_argument( 'config_file', help='PATH to config.ini' )
 	# parser_chap77 = subparsers.add_parser( 'Chap77', help='run Chapter XX problems' )
 	# parser_chap77.add_argument( 'config_file', help='PATH to config.ini' )
 	# The REST
