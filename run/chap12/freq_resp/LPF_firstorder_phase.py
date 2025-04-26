@@ -35,22 +35,17 @@ def LPF_firstorder_phase(self):
 	omega_range:List[float] = [round(0.01 + i * 0.01, 2) for i in range(10000)]  # 100000 values from 0.01 to 1000
 	# print( omega_range )
 
-	# tenthX_crossing_point:List[Any] = []  # ratio is 0.1X
-	# ω01_dB_crossing_point:List[Any] = []   # ratio is 1X (unity)
-	# sqrt2X_crossing_point:List[Any] = []  # ratio is sqrt(2)X
-	# twoX_crossing_point:List[Any] = []    # ratio is 2X
-
-
-	# ax1_plot_label_phase:str = '<K=90-arctan(ω)'
 	list_phase:List[float] = []
+	ωpoint01_dB_crossing_point:List[Any] = []   # ω=.01
 	ωpoint1_dB_crossing_point:List[Any] = []    # ω=.1
-	ω01_dB_crossing_point:List[Any] = []   # ω=1
-	ω10_dB_crossing_point:List[Any] = []    # ω=10
+	ω01_dB_crossing_point:List[Any] = []        # ω=1
+	ω10_dB_crossing_point:List[Any] = []        # ω=10
+	ω100_dB_crossing_point:List[Any] = []       # ω=100
 
 	# T_jω:float = 1 / (1 + ω)
 
 	# Set K to [1 | -1]
-	K:float = -1
+	K:float = 1
 	K_angle:float = 0
 	if( K==1 ):
 		K_angle = 0
@@ -68,8 +63,6 @@ def LPF_firstorder_phase(self):
 	# 	list_Tjω.append( val )
 
 	for idx, ω in enumerate(omega_range):
-		# eq:float = math.atan(math.pi/2)
-		# eq:float = math.atan(2*math.pi*ω)
 		eq:float = 180 / math.pi * math.atan(ω)
 		val2:float = K_angle - eq
 		list_phase.append( val2 )
@@ -85,6 +78,9 @@ def LPF_firstorder_phase(self):
 		if( ω == 10 ):
 			ω10_dB_crossing_point = [omega_range[idx],int(val2)]
 			print( f"ω10_dB_crossing_point: {ω10_dB_crossing_point}" )
+		if( ω == 100 ):
+			ω100_dB_crossing_point = [omega_range[idx],int(val2)]
+			print( f"ω100_dB_crossing_point: {ω100_dB_crossing_point}" )
 
 
 
@@ -132,16 +128,16 @@ Since K is real:
 	# ax2.tick_params(axis='y', labelcolor='b')
 	# plt.legend()  # adds a legend to label the voltage curve
 
-	lw:float = 2.0
+	lw:float = 1.0
 	# Add a horiz guide line at .01
-	# plt.hlines( y=ωpoint01_dB_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=ωpoint01_dB_crossing_point[0],
-	# 	label=f"{ωpoint01_dB_crossing_point[1]}deg @ω=.01",
-	# 	color='purple', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at 100 that stops at 20log(.01)
-	# plt.vlines( x=ωpoint01_dB_crossing_point[0],
-	# 	ymin=list_phase[-1], ymax=ωpoint01_dB_crossing_point[1],
-	# 	color='purple', linestyle='--', linewidth=lw )
+	plt.hlines( y=ωpoint01_dB_crossing_point[1],
+		xmin=omega_range[0], xmax=ωpoint01_dB_crossing_point[0],
+		label=f"{ωpoint01_dB_crossing_point[1]}deg @ω=.01",
+		color='purple', linestyle='--', linewidth=lw )
+	# Add a vertical guide line at 100 that stops at 20log(.01)
+	plt.vlines( x=ωpoint01_dB_crossing_point[0],
+		ymin=list_phase[-1], ymax=ωpoint01_dB_crossing_point[1],
+		color='purple', linestyle='--', linewidth=lw )
 
 	# Add a horiz guide line at .1
 	plt.hlines( y=ωpoint1_dB_crossing_point[1],
@@ -173,8 +169,15 @@ Since K is real:
 		ymin=list_phase[-1], ymax=ω10_dB_crossing_point[1],
 		color='g', linestyle='--', linewidth=lw )
 
-
-
+	# Add a horiz guide line at 100
+	plt.hlines( y=ω100_dB_crossing_point[1],
+		xmin=omega_range[0], xmax=ω100_dB_crossing_point[0],
+		label=f"{ω100_dB_crossing_point[1]}deg @ω=10",
+		color='cyan', linestyle='--', linewidth=lw )
+	# Add a vertical guide line at 10 that stops at 20log(100)
+	plt.vlines( x=ω100_dB_crossing_point[0],
+		ymin=list_phase[-1], ymax=ω100_dB_crossing_point[1],
+		color='cyan', linestyle='--', linewidth=lw )
 
 
 	plt.title( f"{pnum} LFP freq resp phase, normalized" )
@@ -194,75 +197,3 @@ Since K is real:
 # 	print( ans_string )
 
 	print( f"--- END {self.prob_str} ---" )
-
-
-
-
-	# lw:float = 2.0
-	# # Add a horiz guide line at 0.1X that stops at 20log(ω/ωo)
-	# plt.hlines( y=tenthX_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=tenthX_crossing_point[0],
-	# 	label=f"{tenthX_crossing_point[1]}deg @ω/ωo=0.1X",
-	# 	color='purple', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at 10X that stops at 20log(ω/ωo)
-	# plt.vlines( x=tenthX_crossing_point[0],
-	# 	ymin=list_log_omega[0], ymax=tenthX_crossing_point[1],
-	# 	color='purple', linestyle='--', linewidth=lw )
-
-	# # Add an entire-height horizontal guide line at unity
-	# # plt.axhline( y=ω01_dB_crossing_point[1], color='k', label='unity' , linestyle='--', linewidth=lw )
-	# # Add an entire-height vertical guide line at unity
-	# # plt.axvline( x=ω01_dB_crossing_point[0], color='k', linestyle='--', linewidth=lw )
-
-	# # Add a horiz guide line at unity that stops at 20log(ω/ωo)
-	# plt.hlines( y=ω01_dB_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=ω01_dB_crossing_point[0],
-	# 	label=f"{ω01_dB_crossing_point[1]}deg @ω/ωo=unity",
-	# 	color='k', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at unity that stops at 20log(ω/ωo)
-	# plt.vlines( x=ω01_dB_crossing_point[0],
-	# 	ymin=list_log_omega[0], ymax=ω01_dB_crossing_point[1],
-	# 	color='k', linestyle='--', linewidth=lw )
-
-	# # Add a horiz guide line at sqrt(2) that stops at 20log(ω/ωo)
-	# plt.hlines( y=sqrt2X_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=sqrt2X_crossing_point[0],
-	# 	label=f"{sqrt2X_crossing_point[1]}deg @ω/ωo=sqrt(2)X",
-	# 	color='r', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at sqrt(2) that stops at 20log(ω/ωo)
-	# plt.vlines( x=sqrt2X_crossing_point[0],
-	# 	ymin=list_log_omega[0], ymax=sqrt2X_crossing_point[1],
-	# 	color='r', linestyle='--', linewidth=lw )
-
-
-	# # Add an entire-height horizontal guide line at 2X
-	# # plt.axhline( y=twoX_crossing_point[1], color='b', label='2X' , linestyle='--', linewidth=lw )
-	# # Add an entire-height vertical guide line at 2X
-	# # plt.axvline( x=twoX_crossing_point[0], color='b', linestyle='--', linewidth=lw )
-
-	# # Add a horiz guide line at 2X that stops at 20log(ω/ωo)
-	# plt.hlines( y=twoX_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=twoX_crossing_point[0],
-	# 	label=f"{twoX_crossing_point[1]}deg @ω/ωo=2X",
-	# 	color='b', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at 2X that stops at 20log(ω/ωo)
-	# plt.vlines( x=twoX_crossing_point[0],
-	# 	ymin=list_log_omega[0], ymax=twoX_crossing_point[1],
-	# 	color='b', linestyle='--', linewidth=lw )
-
-
-	# # Add an entire-height horizontal guide line at 10X
-	# # plt.axhline( y=ω10_dB_crossing_point[1], color='g', label='10X' , linestyle='--', linewidth=lw )
-	# # Add an entire-height vertical guide line at 10X
-	# # plt.axvline( x=ω10_dB_crossing_point[0], color='g', linestyle='--', linewidth=lw )
-
-	# # Add a horiz guide line at 10X that stops at 20log(ω/ωo)
-	# plt.hlines( y=ω10_dB_crossing_point[1],
-	# 	xmin=omega_range[0], xmax=ω10_dB_crossing_point[0],
-	# 	label=f"{ω10_dB_crossing_point[1]}deg @ω/ωo=10X",
-	# 	color='g', linestyle='--', linewidth=lw )
-	# # Add a vertical guide line at 10X that stops at 20log(ω/ωo)
-	# plt.vlines( x=ω10_dB_crossing_point[0],
-	# 	ymin=list_log_omega[0], ymax=ω10_dB_crossing_point[1],
-	# 	color='g', linestyle='--', linewidth=lw )
-
