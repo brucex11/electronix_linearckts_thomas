@@ -12,6 +12,7 @@ When applicable, each problem has keywords that reflect code in that problem.
 
 ## Available Keywords
 * `convolution  unit_step  heaviside`
+* `HPF`  `freq_response`  `time_constant`  `plot_mag`  `plot_phase`
 
 
 # Examples, Exercises, and Problems
@@ -23,6 +24,14 @@ X.XX: Description
 * associated word docx (optional)
 * LTspice folder (optional)
 * keywords list `YYY ZZZ`(optional)
+
+
+## Frequency Response
+Problem: HPF.firstorder.RC
+"Uses values for R and C"; plots for mag and phase, phase K=1 or K=-1.
+* ./chap12/freq_resp/HPF_firstorder_RC.py
+* .\docx\chap12\freq_resp\first-order\HPF\first-order__HPF_RConly.docx
+* keywords: `HPF`  `freq_response`  `time_constant`  `plot_mag`  `plot_phase`
 
 
 ## Examples
